@@ -1,0 +1,43 @@
+<%-include("parts/indexHead") %>
+<!-- vars: index -->
+<div class="container">
+<h1>הוספת פריט</h1>
+<hr>
+<div class="container">
+    <form style="text-align: right; font-size: 18px; width: 50%; margin-left: 40%;" action="/<%=index%>/create" method="POST">
+        <div class="form-group">
+            <label>קטגוריה</label>
+            <select class="form-control" name="cake[category]">
+              <option >עוגות</option>
+              <option>עוגיות</option>
+              <option>עוגות לחג</option>  
+            </select>
+          </div>
+        
+        <div class="form-group">
+            <lable>שם המוצר</lable>
+            <input class="form-control" placeholder="שם המוצר" type="text" name="cake[name]">
+        </div>
+
+        <div class="form-group">
+            <lable>תמונה - קישור</lable>
+            <input class="form-control" placeholder="תמונה" type="text" name="cake[img]">
+        </div>
+        <div class="form-group">
+            <lable>מחיר </lable>
+            <input class="form-control" placeholder="מחיר" type="number" name="cake[price]">
+        </div>
+        <div class="form-group">
+            <label>חלבי/ פרווה</label>
+            <select class="form-control" name="cake[condition]">
+              <option >חלבי</option>
+              <option>פרווה</option>
+            </select>
+          </div>
+        <div class="form-group">
+            <input class="btn bg-primary" class="form-control" type="submit" >
+        </div>
+    </form>
+</div>
+</div>
+<%-include("parts/footer") %>

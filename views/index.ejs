@@ -1,0 +1,25 @@
+<%-include("parts/indexHead") %>
+<!-- vars: index, catArr -->
+<div class="container">
+    <h1><%= index%></h1>
+    <hr>
+    <a href="/<%=index%>/create">הוסיפי אוכל</a>
+    <div style="margin-top: 3%;">
+    <% catArr.forEach(function(cat){%>
+    
+      <div class="index col-lg-3 col-md-4 col-sm-6 ">
+      <a href="/<%=index%>/show/<%= cat._id%>">
+        <img src="<%=cat.img%>"/>
+        <p>
+        <b><%= cat.name %></b>
+        <br>
+       <b> <%= cat.price %>₪
+        </b>
+      </p>
+      </a>
+    </div>
+
+  <%  }) %>
+</div>
+</div>
+<%-include("parts/footer") %>

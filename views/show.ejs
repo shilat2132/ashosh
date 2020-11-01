@@ -1,0 +1,78 @@
+<%-include("parts/showHead") %>
+<!-- vars: food, id, index-->
+<script>
+    function fun() {
+       var fo = document.querySelector(".fo")
+       var bu = document.querySelector(".bu")
+       if(fo.style.display =="none"){
+        fo.style.display ="block"
+        bu.textContent = "סגור"
+       }
+       else{
+        fo.style.display ="none"
+        bu.textContent = "להזמנה"
+
+       }
+   }
+</script>
+
+<div class="container">
+<h1><%= food.name%></h1>
+<hr>
+<a href="/<%=index%>/edit/<%=food._id%>">ערוך מוצר</a>
+<div class="row">
+<div class="centerDiv col-lg-6 col-md-12 col-sm-12">
+<img src="<%=food.img%>">
+<div class="info">
+<p class="centered"><b><%=food.price%>₪
+<br>
+<%=food.category%>
+</b>
+<br>
+<button onclick="fun()" class="btn bg-success bu">להזמנה</button>
+<div class="fo">
+<form  style = "text-align: right; font-size: 18px; " action = "/<%=index%>/show/<%=id%>/order" method="POST">
+<div class="form-group">
+            <lable>שם המזמין</lable>
+            <input class="form-control" placeholder="שם המזמין" type="text" name="order[name]">
+        </div>
+<div class="form-group">
+            <lable>מספר פלאפון </lable>
+            <input class="form-control" placeholder="מספר פלאפון" type="number" name="order[phone]">
+        </div>
+<div class="form-group">
+            <lable> פירוט המוצר/ים לקנייה/ הזמנה </lable>
+        <textarea class="form-control" name = "order[shopping]"> </textarea>
+        </div>
+<div class="form-group">
+            <label>משלוח/ איסוף עצמי? שימו לב משלוחים בבאר שבע בלבד</label>
+            <select class="form-control" name="order[delivery]">
+              <option >איסוף עצמי</option>
+              <option>משלוח</option>
+            </select>
+          </div>
+
+        <div class="form-group">
+            <lable>כתובת (רק למי שמעוניין במשלוח)</lable>
+            <input class="form-control" placeholder="כתובת" type="text" name="order[address]">
+        </div>
+        <div class="form-group">
+            <lable>הערות </lable>
+            <br>
+        <textarea class="form-control" name = "order[notes]"> </textarea>
+        </div>
+        
+        <div class="form-group">
+            <input class="btn bg-primary" class="form-control" type="submit" value="הזמן" >
+        </div>
+ </form>
+</div>
+</p>
+
+</div>
+</div>
+<div class="more col-lg-6 col-md-12 col-sm-12">fdsfd</div>
+
+</div>
+</div>
+<%-include("parts/footer") %>
