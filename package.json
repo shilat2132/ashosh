@@ -7,6 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon bake.js"
   },
+  "engines": {
+    "node": "12.16.2"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
