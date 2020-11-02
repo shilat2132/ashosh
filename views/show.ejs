@@ -1,5 +1,5 @@
 <%-include("parts/showHead") %>
-<!-- vars: food, id, index-->
+<!-- vars: food, id, index, arr-->
 <script>
     function fun() {
        var fo = document.querySelector(".fo")
@@ -71,7 +71,29 @@
 
 </div>
 </div>
-<div class="more col-lg-6 col-md-12 col-sm-12">fdsfd</div>
+<div class="more col-lg-6 col-md-12 col-sm-12">
+    <div class="row mo ">
+        <h3>מוצרים נוספים</h3>
+        <hr>
+        <div class="inside">
+    <% var i = 1
+    arr.forEach(function(ar){
+        if(i<= 6 && ar._id != id){
+            i++;%>
+            <div class="index col-lg-4 col-md-6 col-sm-6">
+            <p><a href="/<%=index%>/show/<%= ar._id%>">
+                <img src="<%=ar.img%>"/>
+                <p>
+                <b><%= ar.name %></b>
+                <br>
+               <b> <%= ar.price %>₪
+                </b></p>
+        </div>
+            <%  }
+    }) %>
+</div>
+</div>
+</div>
 
 </div>
 </div>

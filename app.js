@@ -57,6 +57,18 @@ app.get("/orders/index", function(req, res){
   })
 })
 
+app.delete("/orders/index/delete/:id", function(req, res){
+var id = req.params.id;
+Order.findByIdAndDelete(id, function(err){
+  if (err){
+    res.send("error")
+  }
+  else{
+    res.redirect("/orders/index")
+  }
+})
+})
+
 //create order
 app.post("/:index/show/:id/order", function(req, res){
   var id = req.params.id;
@@ -103,12 +115,14 @@ app.get("/:index/show/:id", function(req, res){
   var id = req.params.id;
   var index = req.params.index;
   Cake.findById(id, function(err, food){
-    if(err){
+    Cake.find({category: index}, function(err1, arr){
+    if(err || err1){
       res.send("error")
     }
     else{
-      res.render("show", {id: id, food: food, index:index})
+      res.render("show", {id: id, food: food, index:index, arr: arr})
     }
+  })
   })
 })
 
