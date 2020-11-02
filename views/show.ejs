@@ -24,9 +24,11 @@
 <div class="centerDiv col-lg-6 col-md-12 col-sm-12">
 <img src="<%=food.img%>">
 <div class="info">
-<p class="centered"><b><%=food.price%>₪
-<br>
-<%=food.category%>
+<p class="centered"><b>
+    <%=food.condition %>
+    <br>
+    <%=food.price%>₪
+
 </b>
 <br>
 <button onclick="fun()" class="btn bg-success bu">להזמנה</button>
@@ -84,9 +86,10 @@
             <p><a href="/<%=index%>/show/<%= ar._id%>">
                 <img src="<%=ar.img%>"/>
                 <p>
-                <b><%= ar.name %></b>
+                <b><%= ar.name %>
                 <br>
-               <b> <%= ar.price %>₪
+               
+               <%= ar.price %>₪
                 </b></p>
         </div>
             <%  }

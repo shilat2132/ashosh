@@ -11,9 +11,11 @@
       <a href="/<%=index%>/show/<%= cat._id%>">
         <img src="<%=cat.img%>"/>
         <p>
-        <b><%= cat.name %></b>
+        <b><%= cat.name %>
         <br>
-       <b> <%= cat.price %>₪
+        <%=cat.condition%>
+        <br>
+       <%= cat.price %>₪
         </b>
       </p>
       </a>

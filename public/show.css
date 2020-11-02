@@ -73,6 +73,9 @@ option {
   .info p {
     padding-left: 15%;
   }
+  .index {
+    width: 50%;
+  }
 }
 
 .navbar-inverse .navbar-nav > li > a,
