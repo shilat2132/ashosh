@@ -28,11 +28,11 @@ h1 {
 }
 @media only screen and (max-width: 600px) {
   .backImage {
-    /* padding-left: 21%; */
-    height: 100px;
+    padding-left: 5%;
+    height: 150px;
   }
   h1 {
-    font-size: 31px;
+    font-size: 39px;
     padding-right: 7%;
   }
   .background {
