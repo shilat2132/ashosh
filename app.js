@@ -89,6 +89,9 @@ app.post("/:index/show/:id/order", function(req, res){
 app.get("/", function(req, res){
     res.render("home")
 })
+app.get("/contact", function(req, res){
+  res.render("contact")
+})
 
 // add a cake
 //get create
