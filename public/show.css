@@ -69,13 +69,17 @@ option {
   .centerDiv img {
     height: 260px;
     margin-right: 10%;
+    width: 100%;
   }
-  .info p {
+  h1 {
+    font-size: 39px;
+  }
+  /* .info p {
     padding-left: 15%;
-  }
-  .index {
+  } */
+  /* .index {
     width: 50%;
-  }
+  } */
 }
 
 .navbar-inverse .navbar-nav > li > a,

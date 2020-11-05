@@ -16,19 +16,24 @@ nav {
   padding-left: 10%;
 }
 h1 {
-  padding-left: 4%;
   font-family: "Playfair Display", serif;
   font-size: 72px;
   color: white;
   font-weight: 900;
 }
 @media only screen and (max-width: 600px) {
+  h1 {
+    padding-left: 4%;
+  }
+}
+@media only screen and (max-width: 600px) {
   .backImage {
-    padding-left: 21%;
+    /* padding-left: 21%; */
     height: 100px;
   }
   h1 {
-    font-size: 42px;
+    font-size: 31px;
+    padding-right: 7%;
   }
   .background {
     margin-top: 15%;
