@@ -1,9 +1,14 @@
 <%-include("parts/header") %>
+<!-- var: bookArr -->
 <div class="container">
-    <div class="container background">
-        <img class="backImage" src="https://i.ibb.co/LNXfSfH/ei-1603983076915-removebg-preview-1.png">
-        <h1>A.S SWEET</h1>
+   <h1>ספרי עשוש</h1>
+   <hr>
+<%bookArr.forEach(function(book){%>
+    <a href="/showbook/<%=book._id%>">
+        <%=book.name%>
 
-    </div>
+
+    </a>
+    <%}) %>
 </div>
 <%-include("parts/footer") %>

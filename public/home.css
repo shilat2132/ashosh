@@ -1,63 +1,15 @@
-body {
-  padding-top: 50px;
-  padding-right: 2px;
-  height: 100%;
-  background-color: rgb(98.9, 219.7, 265.5);
-}
-
-nav {
-  text-align: right;
-}
-.background {
-  margin-top: 5%;
-  margin-left: 30%;
-}
-.backImage {
-  padding-left: 10%;
-}
-h1 {
-  font-family: "Playfair Display", serif;
-  font-size: 72px;
-  color: white;
-  font-weight: 900;
-}
-@media only screen and (max-width: 600px) {
-  h1 {
-    padding-left: 4%;
-  }
-}
-@media only screen and (max-width: 600px) {
-  .backImage {
-    padding-left: 5%;
-    height: 150px;
-  }
-  h1 {
-    font-size: 35px;
-    padding-right: 7%;
-  }
-  .background {
-    margin-top: 15%;
-
-    margin-left: 15%;
-  }
-}
-
-html {
-  height: 100%;
-}
-
-.navbar-inverse .navbar-nav > li > a,
 .navbar-inverse .navbar-brand {
-  font-family: "Playfair Display", serif;
-}
-
-.navbar-inverse .navbar-nav > li > a {
-  font-size: 20px;
-  font-weight: 800;
-  color: black;
-}
-.navbar-inverse .navbar-brand {
-  font-size: 25px;
-  font-weight: 900;
-  color: white;
-}
+    font-size: 25px;
+    font-weight: 900;
+    color: white;
+    font-family: "Playfair Display", serif;
+  
+  }
+  body {
+    padding-top: 50px;
+    text-align: right;
+  }
+  
+  nav {
+    text-align: right;
+  }

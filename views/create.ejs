@@ -1,45 +1,41 @@
-<%-include("parts/indexHead") %>
-<!-- vars: index -->
+<%-include("parts/showHead") %>
 <div class="container">
-<h1>הוספת פריט</h1>
+<h1>יצירת ספר </h1>
 <hr>
 <div class="container">
-    <form style="text-align: right; font-size: 18px; width: 50%; margin-left: 40%;" action="/<%=index%>/create" method="POST">
+    <form style="text-align: right; " action="/createbook" method="POST">
         <div class="form-group">
-            <label>קטגוריה</label>
-            <select class="form-control" name="cake[category]">
-              <option >עוגות</option>
-              <option>עוגיות</option>
-              <option>מארזים</option>
-              <option>ללא גלוטן</option>
-              <option>שמרים</option>
-
-            </select>
+            <label>שם הספר</label>
+            <input class="form-control" placeholder="שם הספר" type="text" name="book[name]">
           </div>
-        
-        <div class="form-group">
-            <lable>שם המוצר</lable>
-            <input class="form-control" placeholder="שם המוצר" type="text" name="cake[name]">
+          <div class="form-group">
+            <lable>כריכה - קישור</lable>
+            <input class="form-control" placeholder="תמונה" type="text" name="book[cover]">
         </div>
 
         <div class="form-group">
-            <lable>תמונה - קישור</lable>
-            <input class="form-control" placeholder="תמונה" type="text" name="cake[img]">
-        </div>
-        <div class="form-group">
-            <lable>מחיר </lable>
-            <input class="form-control" placeholder="מחיר" type="number" name="cake[price]">
-        </div>
-        <div class="form-group">
-            <label>חלבי/ פרווה</label>
-            <select class="form-control" name="cake[condition]">
-              <option >חלבי</option>
-              <option>פרווה</option>
-            </select>
-          </div>
-        <div class="form-group">
-            <input class="btn bg-primary" class="form-control" type="submit" >
-        </div>
+          <lable>סופרת</lable>
+          <input class="form-control" placeholder="סופרת" type="text" name="book[author]">
+      </div>
+      <div class="form-group">
+        <lable>שנת הוצאה </lable>
+        <input class="form-control" placeholder="שנת הוצאה" type="number" name="book[year]">
+    </div>
+      <div class="form-group">
+        <lable>מחיר </lable>
+        <input class="form-control" placeholder="מחיר" type="text" name="book[price]">
+    </div>
+
+    <div class="form-group">
+      <lable>תקציר </lable>
+      <textarea class="form-control" name="book[summary]">
+
+      </textarea>
+    </div>
+     
+    <div class="form-group">
+      <input class="btn bg-primary" class="form-control" type="submit" >
+  </div>
     </form>
 </div>
 </div>

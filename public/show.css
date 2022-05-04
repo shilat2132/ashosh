@@ -1,108 +1,89 @@
-h1 {
-  font-family: "Playfair Display", serif;
-  font-size: 45px;
-  color: black;
-  font-weight: 900;
-}
-.centerDiv,
-.mo {
-  margin-top: 3%;
-  margin-bottom: 7%;
-}
-.inside {
-  margin-left: 10%;
-  padding-right: 3%;
-}
-h3 {
-  padding-right: 5%;
-}
-.index img {
-  height: 120px;
-  border-radius: 105px;
-}
-.index {
-  float: left;
-  margin-bottom: 10%;
-}
-
-.index a,
-.index p {
-  text-align: center;
-  color: black;
-}
-.info {
-  text-align: center;
-  font-size: 22px;
-  position: relative;
-  line-height: 1.7;
-  color: black;
-}
-.centerDiv img {
-  height: 360px;
-  border-radius: 15px;
-}
-.fo {
-  display: none;
-}
-
-.form-control {
-  border-radius: 20px;
-}
-
-input[type="text"]::placeholder,
-input[type="number"]::placeholder,
-textarea::placeholder,
-textarea,
-option {
-  text-align: right;
-}
-.form-control ::placeholder {
-  text-align: right;
-}
-
-@media only screen and (min-width: 600px) {
-  .info {
-    padding-left: 38%;
+.navbar-inverse .navbar-brand {
+    font-size: 25px;
+    font-weight: 900;
+    color: white;
+    font-family: "Playfair Display", serif;
+  
   }
-}
-@media only screen and (max-width: 600px) {
-  .centerDiv img {
+  body {
+    padding-top: 50px;
+    text-align: right;
+  }
+
+  body{
+    background-image: url("https://images.squarespace-cdn.com/content/v1/5705cdf2a3360c9af8604891/1540760553004-K8W1RRW6VLMH2JPAUY5R/Flower+drawings+of+cosmos+flowers+by+Katrina+of+Blushed+Design.++This+blog+post+reveals+a+collection+of+botanical+illustrations+and+flower+drawings+from+the+annual+inktober+challenge.+%23inktober+%23flowerdrawings+%23botnaicalillustrations+%23blushedbotanicals+www.blusheddesign.com?format=1000w");
+   /* background-repeat: space;
+   background-position: center; */
+   background-size: contain;
+  }
+  
+  nav {
+    text-align: right;
+  }.navbar-inverse .navbar-brand {
+    font-size: 25px;
+    font-weight: 900;
+    color: white;
+    font-family: "Playfair Display", serif;
+  
+  }
+  body {
+    padding-top: 90px;
+    text-align: right;
+  }
+  
+  nav {
+    text-align: right;
+  }
+
+  .bookcover{
     height: 260px;
-    margin-right: 9%;
-    width: 80%;
+    border-radius: 20px;
+  
+  
   }
-  h1 {
-    font-size: 39px;
+
+  #bookname{
+    font-family: 'Frank Ruhl Libre', serif;    font-size: 40px;
   }
-  /* .info p {
-    padding-left: 15%;
-  } */
-  .index {
-    width: 50%;
+  .info{
+    font-size: 15px;
+    color: black;
+    font-weight: 700;
+    margin-top: 10%;
   }
-}
+  .actualbook{
+    text-align: center;
+    margin-top: 9%;
+  }
+  .hr{
+    width:80%;
+    margin-top: 0px;
+    border:1px solid #00CED1 ;
+    background-color: #00CED1;
+  
+  }
 
-.navbar-inverse .navbar-nav > li > a,
-.navbar-inverse .navbar-brand {
-  font-family: "Playfair Display", serif;
-}
+  .sum{
+    white-space: pre-line;
+    font-family: 'Secular One', sans-serif;
+    font-size: 16px;
+  }
 
-.navbar-inverse .navbar-nav > li > a {
-  font-size: 20px;
-  font-weight: 800;
-  color: black;
-}
-.navbar-inverse .navbar-brand {
-  font-size: 25px;
-  font-weight: 900;
-  color: white;
-}
-body {
-  padding-top: 50px;
-  height: 100%;
-  text-align: right;
-}
+  #taktsir{
+    font-size: 30px;
+    font-family: 'Rubik Beastly', cursive;
+  }
 
-nav {
-  text-align: right;
+  .botnav{
+    margin-bottom: 0%;
+  }
+.context{
+  font-size: 28px;
+  color: azure;
+  font-family: 'Bellefair', serif;
 }
+  .contact{
+    white-space: pre-line;
+    text-align: center;
+   
+  }

@@ -1,103 +1,97 @@
 <%-include("parts/showHead") %>
-<!-- vars: food, id, index, arr-->
+<!-- vars: book-->
 <script>
-    function fun() {
-       var fo = document.querySelector(".fo")
-       var bu = document.querySelector(".bu")
-       if(fo.style.display =="none"){
-        fo.style.display ="block"
-        bu.textContent = "סגור"
-       }
-       else{
-        fo.style.display ="none"
-        bu.textContent = "להזמנה"
+    function explain(){
+        var exp = document.querySelector("#paying")
+        if(exp.style.display =="none"){
+            exp.style.display = "block"
+        } else{
+            exp.style.display = "none"
+        }
+    }
 
-       }
-   }
+    
+
 </script>
 
+
+<style>
+    .fewmore{
+        white-space: pre-line;
+        font-size: 17px;
+        font-weight: 800;
+        font-family: 'Suez One', serif;
+    }
+   
+    .fe{
+        float: right;
+        border-radius: 20px;
+        height: 100px;
+
+    }
+    .few{
+        font-size: 20px;
+        font-family: 'Rubik Beastly', cursive;
+    }
+    #digitalg{
+        background-color: #00CED1;
+        font-family: 'Secular One', sans-serif;
+        color: white;
+        border: none;
+        border-radius: 15px;
+    }
+
+    #paying{
+        white-space: pre-line;
+        font-size: smaller;
+        font-weight: 700;
+    }
+</style>
+
 <div class="container">
-<h1><%= food.name%></h1>
-<hr>
-<a href="/<%=index%>/edit/<%=food._id%>">ערוך מוצר</a>
-<div class="row">
-<div class="centerDiv col-lg-6 col-md-12 col-sm-12">
-<img src="<%=food.img%>">
+   <div class="ashinfo">
+       <img class=" ashpic col-lg-3 col-md-3 col-sm-3 fe" src="https://i.ibb.co/XZp3748/Smart-Select-20220504-151748-Whats-App.jpg">
+       <div class="col-lg-3 col-md-6 col-sm-6 ">
+           <span class="few"> קצת עליי
+           </span>
+           <div class="fewmore">
+               עשוש שלנו בת 19
+               עוד מעט תהיה בת 20  קשישה זקנה ואז אצטרף 
+               אליה בחודש טבת שותינו נהיה קשישות לנצח ונפתח את מועדון הקשישות שלנו
+           </div>
+       </div>
+   </div>
+    <div class="flower actualbook">
+
+<span id="bookname"><%= book.name%></span>
+<hr class="hr">
+<img class="bookcover" src="<%=book.cover%>">
 <div class="info">
-<p class="centered"><b>
-    <%=food.condition %>
+    <span class="author"><%=book.author%></span>
     <br>
-    <%=food.price%>₪
+    <span class="year"><%=book.year%></span>
+    <br>
+    <span class="price"><%=book.price%></span>
+</div>
+<button onclick="explain()" id="digitalg">איך קוראים ספר דיגיטלי</button>
+<div style="display: none;" id="paying">
+    הספר הנרכש הינו ספר דיגיטלי
+    התשלום ייעשה על ידי אפליקציות ביט או פייבוקס
+    כדי לרכוש את הספר, יש להעביר את סכום הכסף 
+    0538320235 הנדרש למספר הפלאפון
+    וחובה לציין את כתובת המייל כדי שתהיה אפשרות לשלוח את הספר
 
-</b>
-<br>
-<button onclick="fun()" class="btn bg-success bu">להזמנה</button>
-<div class="fo">
-<form  style = "text-align: right; font-size: 18px; " action = "/<%=index%>/show/<%=id%>/order" method="POST">
-<div class="form-group">
-            <lable>שם המזמין</lable>
-            <input class="form-control" placeholder="שם המזמין" type="text" name="order[name]">
-        </div>
-<div class="form-group">
-            <lable>מספר פלאפון </lable>
-            <input class="form-control" placeholder="מספר פלאפון" type="number" name="order[phone]">
-        </div>
-<div class="form-group">
-            <lable> פירוט המוצר/ים לקנייה/ הזמנה </lable>
-        <textarea class="form-control" name = "order[shopping]"> </textarea>
-        </div>
-<div class="form-group">
-            <label>משלוח/ איסוף עצמי? שימו לב משלוחים בבאר שבע בלבד</label>
-            <select class="form-control" name="order[delivery]">
-              <option >איסוף עצמי</option>
-              <option>משלוח</option>
-            </select>
-          </div>
-
-        <div class="form-group">
-            <lable>כתובת (רק למי שמעוניין במשלוח)</lable>
-            <input class="form-control" placeholder="כתובת" type="text" name="order[address]">
-        </div>
-        <div class="form-group">
-            <lable>הערות </lable>
-            <br>
-        <textarea class="form-control" name = "order[notes]"> </textarea>
-        </div>
-        
-        <div class="form-group">
-            <input class="btn bg-primary" class="form-control" type="submit" value="הזמן" >
-        </div>
- </form>
+    עד 24 שעות מרגע הרכישה, ישלח אליכם מייל עם קובץ 
+    הספר להרדה ואפליקצייה בעזרתה ניתן לקרוא ספר דיגיטלי
+    
 </div>
-</p>
-
-</div>
-</div>
-<div class="more col-lg-6 col-md-12 col-sm-12">
-    <div class="row mo ">
-        <h3>מוצרים נוספים</h3>
-        <hr>
-        <div class="inside">
-    <% var i = 1
-    arr.forEach(function(ar){
-        if(i<= 6 && ar._id != id){
-            i++;%>
-            <div class="index col-lg-4 col-md-6 col-sm-6">
-            <p><a href="/<%=index%>/show/<%= ar._id%>">
-                <img src="<%=ar.img%>"/>
-                <p>
-                <b><%= ar.name %>
-                <br>
-               
-               <%= ar.price %>₪
-                </b></p>
-        </div>
-            <%  }
-    }) %>
-</div>
+<div style="margin-top: 10%;" class="summary">
+    <span id="taktsir">תקציר</span>
+    <div class="sum">
+        <%-book.summary%>
+    </div>
 </div>
 </div>
 
-</div>
 </div>
 <%-include("parts/footer") %>
