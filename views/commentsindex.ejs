@@ -1,0 +1,13 @@
+<%-include("parts/showHead") %>
+<!-- vars: commentsarr, bookid -->
+<h1>דף תגובות</h1>
+<div class="commentstable">
+    <% commentsarr.forEach(function(com){%>
+       <a href="/editcomment/<%=com._id%>">
+        <%= com.name%>
+       </a> 
+       <%= com.text%>
+   <% })%>
+
+</div>
+<%-include("parts/footer") %>
