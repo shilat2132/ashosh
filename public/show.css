@@ -5,18 +5,6 @@
     font-family: "Playfair Display", serif;
   
   }
-  body {
-    padding-top: 50px;
-    text-align: right;
-  }
-
-  body{
-    background-image: url("https://images.squarespace-cdn.com/content/v1/5705cdf2a3360c9af8604891/1540760553004-K8W1RRW6VLMH2JPAUY5R/Flower+drawings+of+cosmos+flowers+by+Katrina+of+Blushed+Design.++This+blog+post+reveals+a+collection+of+botanical+illustrations+and+flower+drawings+from+the+annual+inktober+challenge.+%23inktober+%23flowerdrawings+%23botnaicalillustrations+%23blushedbotanicals+www.blusheddesign.com?format=1000w");
-   /* background-repeat: space;
-   background-position: center; */
-   background-size: contain;
-  }
-  
   nav {
     text-align: right;
   }.navbar-inverse .navbar-brand {
@@ -26,15 +14,28 @@
     font-family: "Playfair Display", serif;
   
   }
-  body {
-    padding-top: 90px;
-    text-align: right;
-  }
+
   
   nav {
     text-align: right;
   }
 
+ 
+  body{
+    background-image: url("https://images.squarespace-cdn.com/content/v1/5705cdf2a3360c9af8604891/1540760553004-K8W1RRW6VLMH2JPAUY5R/Flower+drawings+of+cosmos+flowers+by+Katrina+of+Blushed+Design.++This+blog+post+reveals+a+collection+of+botanical+illustrations+and+flower+drawings+from+the+annual+inktober+challenge.+%23inktober+%23flowerdrawings+%23botnaicalillustrations+%23blushedbotanicals+www.blusheddesign.com?format=1000w");
+    padding-top: 90px;
+   background-size: contain;
+   text-align: right;
+   direction: rtl;
+
+
+  }
+  
+  .comHr{
+    border-top: 3px solid #eee;
+
+  }
+ 
   .bookcover{
     height: 260px;
     border-radius: 20px;
@@ -48,12 +49,17 @@
   .info{
     font-size: 15px;
     color: black;
-    font-weight: 700;
     margin-top: 10%;
+    font-family: 'Secular One', sans-serif;
+
   }
   .actualbook{
     text-align: center;
     margin-top: 9%;
+  }
+  #addCom{
+    font-family: 'Varela Round', sans-serif;
+font-size: 29px;
   }
   .hr{
     width:80%;
@@ -62,6 +68,10 @@
     background-color: #00CED1;
   
   }
+  .submitbtn{
+    background-color: #00CED1;
+border: none;
+  }
 
   .sum{
     white-space: pre-line;
@@ -69,9 +79,18 @@
     font-size: 16px;
   }
 
+  .titlefont{
+    font-family: 'Rubik Beastly', cursive;
+  }
   #taktsir{
     font-size: 30px;
-    font-family: 'Rubik Beastly', cursive;
+  }
+  #csFont{
+    font-size: 20px;
+  }
+  .showcomments{
+    background-color: azure;
+    border-radius: 19px;
   }
 
   .botnav{
@@ -85,5 +104,14 @@
   .contact{
     white-space: pre-line;
     text-align: center;
+    font-family: 'Varela Round', sans-serif;
    
+  }
+  #comname{
+    font-family: 'Secular One', sans-serif;
+
+  }
+  .comtext{
+    white-space: pre-line;
+    font-family: 'Varela Round', sans-serif;
   }

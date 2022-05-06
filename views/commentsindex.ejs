@@ -1,13 +1,16 @@
 <%-include("parts/showHead") %>
 <!-- vars: commentsarr, bookid -->
 <h1>דף תגובות</h1>
-<div class="commentstable">
-    <% commentsarr.forEach(function(com){%>
-       <a href="/editcomment/<%=com._id%>">
-        <%= com.name%>
-       </a> 
-       <%= com.text%>
-   <% })%>
+   <div style="margin-top: 9%;" class="showcomments container">
+    <% commentsarr.forEach(function(comment){%>
+       <div class="singleComment container">
+        <span id="comname">
+            <%= comment.name%>
+            <div class="comtext"><%= comment.text%></div>
+            <a href="/editcomment/<%=bookid%>/<%=commentsarr.indexOf(comment)%>">ערכי תגובה</a>
+            <hr class="comHr">
+       </div>
 
+            <%})%>
 </div>
 <%-include("parts/footer") %>

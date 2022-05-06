@@ -22,21 +22,16 @@ app.use(bp.urlencoded({ extended: true }));
 app.use(me("_method"));
 
 
-var co = new mon.Schema({
-  bookid: String,
-  name: String,
-  email: String,
-  text: String
-})
-var Comment = mon.model ("Comment", co)
+
   var bo = new mon.Schema ({
+    about: String,
       name: String,
       cover: String,
       author: String,
       year: Number,
       price: String,
       summary: String,
-      comments: [co]
+      comments: [{name:String, text:String}]
   })
    
 var Book = mon.model ("Book", bo)
@@ -51,10 +46,6 @@ app.get("/", function(req, res){
   }
   })
 })
-
-
-
-
 
 // add a book
 //get create
@@ -75,25 +66,6 @@ app.post("/createbook", function(req, res){
 })
 
 
-// create a comment
-app.post("/createcomment/:id", function(req, res){
-  var com = req.body.comment
-  var id = req.params.id
-  com.bookid = id
-  Comment.create(com, function(err, newCom){
-    if(err){res.send("error")}
-    else{
-      Book.findByIdAndUpdate(id, {comments:newCom}, function(err2, found){
-        if(err){ res.send("error")}
-        else{ res.redirect("/showbook/"+ id)}
-      })
-
-
-    }
-  })
-})
-
-
 // show
 app.get("/showbook/:id", function(req, res){
   Book.findById(req.params.id, function(err, book){
@@ -103,75 +75,34 @@ app.get("/showbook/:id", function(req, res){
   })
 })
 
-// comments index
-app.get("/commentsindex/:id", function(req,res){
-  var id = req.params.id
-  Book.findById(id, function(err, found){
-    if(err){res.send("error")}
-    else{
-      res.render("commentsindex", {commentsarr: found.comments})
-    }
-  })
-})
-
-// edit comment
-app.get("/editcomment/:id", function(req,res){
-  var id = req.params.id
-  Comment.findById(id, function(err, foundcomment){
-    if(err){res.send("error")}
-    else{
-      console.log(foundcomment.email)
-      res.render("editcomment", {comment: foundcomment})}
-    
-  })
-})
-
-app.put("/editcomment/:id", function(req, res){
-  var id = req.params.id
-  var updatedC = req.body.comment
-  Comment.findByIdAndUpdate(id, updatedC, function(err, edited){
-    if(err){res.send("error")}
-else{
-  Book.findByIdAndUpdate (edited.bookid, {comments:edited}, function(err2, updatebook){
-    if(err2){res.send("error")}
-    else{
-      res.redirect("/showbook/"+ edited.bookid)
-    }
-  })
-}
-  })
-})
-
-
-
-
 //edit routes
 //get
 app.get("/editbook/:id", function(req, res){
- var id = req.params.id;
- Book.findById(id, function(err, book){
-   if(err){
-     res.send("error")
-   }
-   else{
-     res.render("edit", {id: id, book: book})
-   }
- })
-})
-
-// put
-app.put("/updatebook/:id", function(req, res){
   var id = req.params.id;
-  var newBook = req.body.book;
-  Book.findByIdAndUpdate(id, newBook, function(err, updated){
+  Book.findById(id, function(err, book){
     if(err){
       res.send("error")
     }
     else{
-      res.redirect("/showbook/" + id)
+      res.render("edit", {id: id, book: book})
     }
   })
-})
+ })
+ 
+ // put
+ app.put("/updatebook/:id", function(req, res){
+   var id = req.params.id;
+   var newBook = req.body.book;
+   Book.findByIdAndUpdate(id, newBook, function(err, updated){
+     if(err){
+       res.send("error")
+     }
+     else{
+       res.redirect("/showbook/" + id)
+     }
+   })
+ })
+
 
 //delete route
 app.delete("/deletebook/:id", function(req, res){
@@ -186,6 +117,76 @@ Book.findByIdAndDelete(id, function(err){
 })
 
 })
+
+// COMMENTS
+// create a comment
+app.post("/createcomment/:id", function(req, res){
+  var com = req.body.comment
+  var id = req.params.id //bookid
+ Book.findByIdAndUpdate(id, { $push: { comments: com  } }, function(err, foundbook){
+   if(err){res.send("error")}
+   else{
+res.redirect("/showbook/" +id)
+   }
+ })
+})
+
+
+// comments index
+app.get("/commentsindex/:id", function(req,res){
+  var id = req.params.id
+  Book.findById(id, function(err, found){
+    if(err){res.send("error")}
+    else{
+      res.render("commentsindex", {commentsarr: found.comments, bookid: id})
+    }
+  })
+})
+
+// edit comment
+app.get("/editcomment/:bookid/:index", function(req,res){
+  var commentid = req.params.index
+var bookid = req.params.bookid
+Book.findById(bookid, function(err, foundbook){
+  if(err){res.send("error")}
+  else{
+    var updatecomment = foundbook.comments[commentid]
+
+    res.render("editcomment",{ updatecomment: updatecomment, commentid: commentid, bookid: bookid})
+  }
+})
+ 
+})
+
+app.put("/editcomment/:bookid/:index", function(req, res){
+ var commentid = req.params.index
+var bookid = req.params.bookid
+  var updatedC = req.body.comment
+  Book.findById(bookid, function(err, foundbook){
+    if(err){res.send("error")}
+    else{
+      foundbook.comments.set(commentid, updatedC)
+       foundbook.save();
+      res.redirect("/showbook/"+foundbook._id)}
+  })
+})
+
+
+// delete comment
+app.delete("/deletecomment/:bookid/:commentid", function(req,res){
+  var bookid = req.params.bookid
+  var commentid = req.params.commentid
+  Book.findById(bookid, function(err, foundbook){
+    if(err){res.send("error")}
+    else{
+      foundbook.comments.splice (commentid, 1)
+       foundbook.save();
+      res.redirect("/showbook/"+foundbook._id)}
+  })
+
+})
+
+
   
 
 

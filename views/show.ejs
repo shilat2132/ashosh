@@ -18,8 +18,7 @@
 <style>
     .fewmore{
         white-space: pre-line;
-        font-size: 17px;
-        font-weight: 800;
+        font-size: 14px;
         font-family: 'Suez One', serif;
     }
    
@@ -54,11 +53,7 @@
        <div class="col-lg-3 col-md-6 col-sm-6 ">
            <span class="few"> קצת עליי
            </span>
-           <div class="fewmore">
-               עשוש שלנו בת 19
-               עוד מעט תהיה בת 20  קשישה זקנה ואז אצטרף 
-               אליה בחודש טבת שותינו נהיה קשישות לנצח ונפתח את מועדון הקשישות שלנו
-           </div>
+           <div class="fewmore"><%=book.about%></div>
        </div>
    </div>
     <div class="flower actualbook">
@@ -69,9 +64,9 @@
 <div class="info">
     <span class="author"><%=book.author%></span>
     <br>
-    <span class="year"><%=book.year%></span>
+    <span class="year">שנת הוצאה  <%=book.year%> </span>
     <br>
-    <span class="price"><%=book.price%></span>
+    <span class="price"><%-book.price%></span>
 </div>
 <button onclick="explain()" id="digitalg">איך קוראים ספר דיגיטלי</button>
 <div style="display: none;" id="paying">
@@ -82,41 +77,46 @@
     וחובה לציין את כתובת המייל כדי שתהיה אפשרות לשלוח את הספר
 
     עד 24 שעות מרגע הרכישה, ישלח אליכם מייל עם קובץ 
-    הספר להרדה ואפליקצייה בעזרתה ניתן לקרוא ספר דיגיטלי
+    הספר להורדה ואפליקצייה בעזרתה ניתן לקרוא ספר דיגיטלי
     
 </div>
 <div style="margin-top: 10%;" class="summary">
-    <span id="taktsir">תקציר</span>
+    <span class="titlefont" id="taktsir">תקציר</span>
     <div class="sum">
         <%-book.summary%>
     </div>
 </div>
 </div>
-<% book.comments.forEach(function(comment){%>
-<%= comment.name%>
-<br>
-<%= comment.text%>
+<div style="margin-top: 9%;" class="showcomments container">
+    <span id="csFont" class="titlefont">תגובות על העמוד ועל הספר</span>
+    <hr style="width: 97%;" class="hr">
+    <% book.comments.forEach(function(comment){%>
+       <div class="singleComment container">
+        <span id="comname">
+            <%= comment.name%> </span> 
+            <div class="comtext"><%= comment.text%></div>
+            <hr class="comHr">
+       </div>
 
-    <%})%>
+            <%})%>
+</div>
 
-<div class="comments">
+
+<div class="comments container">
     <form action="/createcomment/<%=book._id%>" method="post">
+        <span id="addCom">הוספת תגובה</span>
         <div class="form-group">
             <label>שם</label>
-            <input class="form-control" placeholder="שם" type="text" name="comment[name]">
+            <input class="form-control" type="text" name="comment[name]">
           </div>
           <div class="form-group">
-            <label> אימייל</label>
-            <input class="form-control" placeholder="אימייל" type="email" name="comment[email]">
-          </div>
-          <div class="form-group">
-            <label>ביקורת</label>
+            <label>תגובה</label>
             <textarea class="form-control" name="comment[text]">
 
             </textarea>
           </div>
           <div class="form-group">
-            <input class="btn bg-primary" class="form-control" type="submit" >
+            <input class="btn submitbtn" class="form-control" type="submit" value="שליחה">
         </div>
     </form>
 </div>

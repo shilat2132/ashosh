@@ -1,28 +1,24 @@
 <%-include("parts/showHead") %>
-<!-- vars: comment -->
+<!-- vars: updatecomment, commentid, bookid -->
 <div class="container">
 
 <h1> ערכי תגובה</h1>
-<form action="/editcomment/<%=comment._id%>?_method=PUT" method="post">
+<form action="/editcomment/<%=bookid%>/<%=commentid%>?_method=PUT" method="post">
     <div class="form-group">
         <label>שם</label>
-        <input class="form-control" value="<%= comment.name%>" type="text" name="comment[name]">
+        <input class="form-control" value="<%= updatecomment.name%>" type="text" name="comment[name]">
       </div>
       <div class="form-group">
-        <label> אימייל</label>
-        <input class="form-control" value="<%= comment.email%>" type="email" name="comment[email]">
-      </div>
-      <div class="form-group">
-        <label>ביקורת</label>
+        <label>תגובה</label>
         <textarea class="form-control" name="comment[text]">
-            <%= comment.text%>
+            <%= updatecomment.text%>
         </textarea>
       </div>
       <div class="form-group">
         <input class="btn bg-primary" class="form-control" type="submit" >
     </div>
 </form>
-<form action="/deletecomment/<%=comment._id%>?_method=DELETE" method="POST">
+<form action="/deletecomment/<%=bookid%>/<%=commentid%>?_method=DELETE" method="POST">
     <button class="btn bg-danger"> מחקי תגובה</button>
     </form>
 </div>
