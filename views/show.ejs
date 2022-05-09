@@ -16,24 +16,27 @@
 
 
 <style>
-    .fewmore{
+    .fewm{
         white-space: pre-line;
         font-size: 14px;
-        font-family: 'Suez One', serif;
+        font-family: 'Alef', sans-serif;        text-align: center;
     }
+     .wordsabout{
+         font-weight: 900;
+         font-size: 16px;
+     }
    
     .fe{
-        float: right;
-        border-radius: 20px;
-        height: 100px;
-
+        height: 180px;
+margin-right: 17%;
     }
     .few{
         font-size: 20px;
         font-family: 'Rubik Beastly', cursive;
     }
     #digitalg{
-        background-color: #00CED1;
+        background-color: #87CEFA
+;
         font-family: 'Secular One', sans-serif;
         color: white;
         border: none;
@@ -44,15 +47,15 @@
         white-space: pre-line;
         font-size: smaller;
         font-weight: 700;
+        direction: ltr;
     }
 </style>
 
 <div class="container">
    <div class="ashinfo">
-       <img class=" ashpic col-lg-3 col-md-3 col-sm-3 fe" src="https://i.ibb.co/XZp3748/Smart-Select-20220504-151748-Whats-App.jpg">
-       <div class="col-lg-3 col-md-6 col-sm-6 ">
-           <span class="few"> קצת עליי
-           </span>
+       <img class="rounded mx-auto ashpic fe" src="https://i.ibb.co/XZp3748/Smart-Select-20220504-151748-Whats-App.jpg">
+       <div class="fewm">
+           <span class="wordsabout">ברוכים הבאים לאתר שלי</span>
            <div class="fewmore"><%=book.about%></div>
        </div>
    </div>
