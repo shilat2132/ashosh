@@ -42,7 +42,8 @@
   .info{
     font-size: 15px;
     color: black;
-    margin-top: 10%;
+    margin-top: 5%;
+    line-height: 2;
     font-family: 'Secular One', sans-serif;
 
   }

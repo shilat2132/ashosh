@@ -18,7 +18,7 @@
 <style>
     .fewm{
         white-space: pre-line;
-        font-size: 14px;
+        font-size: 13px;
         font-family: 'Alef', sans-serif;        text-align: center;
     }
      .wordsabout{
@@ -28,7 +28,7 @@
    
     .fe{
         height: 180px;
-margin-right: 17%;
+margin-right: 22%;
     }
     .few{
         font-size: 20px;
@@ -49,12 +49,15 @@ margin-right: 17%;
         font-weight: 700;
         direction: ltr;
     }
+    .author{
+        font-size: 19px;
+    }
 </style>
 
 <div class="container">
    <div class="ashinfo">
        <img class="rounded mx-auto ashpic fe" src="https://i.ibb.co/XZp3748/Smart-Select-20220504-151748-Whats-App.jpg">
-       <div class="fewm">
+       <div class="fewm container">
            <span class="wordsabout">ברוכים הבאים לאתר שלי</span>
            <div class="fewmore"><%=book.about%></div>
        </div>
@@ -70,7 +73,7 @@ margin-right: 17%;
 <div class="info">
     <span class="author"><%=book.author%></span>
     <br>
-    <span class="year">שנת הוצאה  <%=book.year%> </span>
+    <span class="year"> שנת הוצאה:  <%=book.year%> </span>
     <br>
     <span class="price"><%-book.price%></span>
 </div>
