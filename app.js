@@ -167,7 +167,7 @@ var bookid = req.params.bookid
     else{
       foundbook.comments.set(commentid, updatedC)
        foundbook.save();
-      res.redirect("/showbook/"+foundbook._id)}
+      res.redirect("/commentsindex/"+foundbook._id)}
   })
 })
 
@@ -181,7 +181,7 @@ app.delete("/deletecomment/:bookid/:commentid", function(req,res){
     else{
       foundbook.comments.splice (commentid, 1)
        foundbook.save();
-      res.redirect("/showbook/"+foundbook._id)}
+      res.redirect("/commentsindex/"+foundbook._id)}
   })
 
 })
