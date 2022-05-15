@@ -20,6 +20,7 @@
         white-space: pre-line;
         font-size: 13px;
         font-family: 'Alef', sans-serif;        text-align: center;
+        font-weight: 900;
     }
      .wordsabout{
          font-weight: 900;
@@ -59,7 +60,7 @@ margin-right: 22%;
        <img class="rounded mx-auto ashpic fe" src="https://i.ibb.co/XZp3748/Smart-Select-20220504-151748-Whats-App.jpg">
        <div class="fewm container">
            <span class="wordsabout">ברוכים הבאים לאתר שלי</span>
-           <div class="fewmore"><%=book.about%></div>
+           <b class="fewmore"><%=book.about%></b>
        </div>
    </div>
    <div class="flower">
@@ -97,7 +98,7 @@ margin-right: 22%;
 </div>
 </div>
 <div style="margin-top: 9%;" class="showcomments container">
-    <span id="csFont" class="titlefont">תגובות על העמוד ועל הספר</span>
+    <span id="csFont" class="titlefont">מה אתם חושבים על הספר?</span>
     <hr style="width: 97%;" class="hr">
     <% book.comments.forEach(function(comment){%>
        <div class="singleComment container">
