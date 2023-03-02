@@ -3,6 +3,7 @@ var app = express();
 var mon = require ("mongoose")
 var bp = require("body-parser")
 var me = require ("method-override")
+const PORT = process.env.PORT || 3030;
 
 mon
   .connect(
@@ -190,9 +191,11 @@ app.delete("/deletecomment/:bookid/:commentid", function(req,res){
   
 
 
-
-  app.listen(process.env.PORT || 3000, process.env.IP, function () {
-    console.log("goodddd");
-  })
+app.listen(PORT, () => {
+  console.log(`server started on port ${PORT}`);
+});
+  // app.listen(process.env.PORT || 3000, process.env.IP, function () {
+  //   console.log("goodddd");
+  // })
 
 
